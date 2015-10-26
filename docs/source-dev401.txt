@@ -1,0 +1,731 @@
+1. Universal Containers has built a recruiting application with 2 custom objects, Job Applications and Reviews, that have a master-detail relationship. Users should NOT be allowed to delete review records after job application records have been approved. How would a developer meet this requirement?
+a. Change the interviewer’s profile to Read-only for the review object
+b. Remove the delete button from the job application page layout
+c. Use workflow to change the page layout to Read-only
+d. Use a validation rule in conjunction with a roll-up summary field
+Ans:  d
+2. A developer needs to support multiple currencies for a custom object in an application. The multi-currency feature has been enabled for the organization.
+What does the developer need to know in order to successfully support this application?
+Choose 2 answers
+a. The multi-currency feature will automatically track historical exchange rates.
+b. Roll-up summary fields on a parent record will calculate incorrectly if the child records have multiple currencies
+c. Administrators can add additional currencies after the application has been built
+d. Currency ISO code will need to be supplied when inserting records in different currencies.
+Ans : c,d
+3. In a recruiting application, a Position custom object is related to a Salary custom object. Sensitive information such as current salary, is stored on the Salary object. All users should be able to atleast view position information. However, only select individuals should be able to read salary records.
+How should a developer accomplish this?
+a. Create a master-details relationship between  Position and Salary; set organization-wide defaults to Public Read-Only for Position and Private for Salary
+b. Create a lookup  relationship between  Position and Salary; set organization-wide defaults t Private  for Position and for Salary
+c. Create a lookup relationship between  Position and Salary; set organization-wide defaults to Public Read-Only for Position and Private for Salary
+d. Create a master-detail  relationship between  Position and Salary; set organization-wide defaults t Private  for Position and for Salary
+Ans :  C
+4. Which portion of Model-View-Controller paradigm is represented in Force.com as a standard or custom object?
+a. Controller
+b. Model
+c. View
+Ans : b
+5. Which statement is TRUE about field-level security? Choose 2 answers.
+a. It can be controlled at record level
+b. It is specified for each profile
+c. It determines the values displayed in a visible picklist field
+d. It is enforced in the SOAP-API/It can be enforce in Web services
+Ans : b,d
+6. Positions is a custom object in a recruiting application built on the Force.com platform. Department is a field on the Position object.
+Which type of report should a developer create to show hiring managers the number of positions grouped by department?
+a. Tabular
+b. Pivot
+c. Summary
+d. Analytic Snapshot
+Ans : c
+7. In which Salesforce enviroments will the Force.com record IDs be identical?
+a. Production and Full Copy Sandbox only
+b. Production and Full Copy Sandbox, and Developer Sandbox
+c. Force.com record IDs are never identical
+d. Production and Developer Sandbox only
+Ans : a
+8. Universal containers tracks Positions as a custom object in a recruiting application. When position records are created, they have a status of New and are visible to only the position owner. Once a position goes through an approval process, the status is changed to Approved. Approved positions should be visible to the entire organization.
+How can a developer meet this requirement? Choose 2 answers
+a. Create a criteria-based sharing rule that states that Approved positions are shared with the entire organization
+b. Create a workflow field update that updates a custom field called Sharing on a position once the status is Approved
+c. Create an Apex trigger that automatically updates sharing on a position once the status is Approved.
+d. Create  a formula field that updates the sharing on a position once the status changes to Approved
+Ans : a,c
+9. How does a developer enable users to access tags in the sidebar? Choose 3 answers
+a. By enabling tags for the organization
+b. By adding tags to the sidebar in the home page layout
+c. By enabling tags on user’s profile
+d. By enabling tags on the page layout for an object
+e. By enabling tags for public groups
+Ans :  a,b,d
+10. In recruiting application, a custom object called Position requires approval. When a position record is submitted for approval, the requirements below must be met:
+> The hiring manager must approve the record
+> The approval must be forwarded to all members of the executive team, but only one executive needs to approve the record
+> The VP of human resources must approve the record
+      How would a developer meet this requirement?
+a. Create parallel workflow rules, requiring at least one executive team member to complete their assigned task
+b. Create multiple approval processes, one for each executive team member and utilize parallel submission
+c. Create an approval process with a step for each executive team member, allowing approval steps to be skipped
+d. Create an approval process which utilizes parallel approvers, but does not require unanimous approval
+Ans :  d
+11. A user can only see the fields A, B, and C on a record of Object X until the Stage field value on the record changes from New to working. Once the Stage held value is updated to Working and the record is saved, the user should be able to see fields A, B, C and D.
+How would an application developer configure this?
+a. Use multiple Visualforce pages
+b. Use workflow to change the field-level security
+c. Use workflow to change the record type
+d. Use validation rules to expose the field
+Ans : a
+12. Which is a valid data type for a custom formula field. Choose 3 answers
+a. Checkbox
+b. Date
+c. Email
+d. Currency
+e. Percent
+Ans : b, d, e
+13. Which statement is TRUE about master-detail relationship in the Force.com platform?
+Choose 2 answers
+a. The master-detail relationship field is required on the page layout of the detail record
+b. When defining a master-detail relationship, the custom object on which you are working is the master
+c. The security settings for the master record control the detail record.
+d. When a master record is deleted, the child records remain in the system without a master record
+Ans :  a, c
+14. Which type of custom field can be an external ID?
+a. Text, Number or Formula fields only
+b. Custom field of any type
+c. Text, Email. or Number fields only
+d. Phone number, Email. URL and Text-based fields
+Ans : c
+15. What is a junction object?
+a. A standard object with two master-detail relationships
+b. A standard object with a master-detail relationship
+c. A custom object with a master-detail relationship
+d. A custom object with two master-detail relationships
+Ans : d
+16. Which feature is available for custom objects? Choose 3 answers
+a. Field history tracking
+b. Assignment rules
+c. Criteria-based sharing
+d. Queues
+Ans : a, c, d
+17. In a recruiting allocation, salary requirements are tracked in a custom object. An approval process is built that will route all salary requirements less than 100,000 USD to the recruiter for automatic approval. In the same approval process, salary requirements greater than 100,000 USD are routed directly to the vice president of human resources.
+What must be done to initiate the approval process that will route the appropriate records to the vice president for approval?
+a. Execute the approval process by clicking on the Submit for Approval button on the record’s detail page layout
+b. Create a workflow rule that will evaluate salary amount and trigger the approval process if the salary is greater than 100,000USD
+c. Create a workflow rule that evaluate salary amount and send a notification to the vice president if the salary is greater than 100,000USD
+d. Save the record so it will automatically be entered into the approval process
+Ans : a
+18. What must a developer consider when inserting records using an API-based tool? Choose 2
+a. Universally required field settings are respected
+b. Apex triggers are ignored
+c. Required fields on page layouts are enforced
+d. Validation rules are respected
+Ans :  a, d
+19. Universal containers tracks reviews as a custom object in a recruiting application. An interview score is tracked on each review record and should be numberical, so that hiring managers can perform score calculations. The scores should be restricted to integer values 1 through 5 and displayed as a set of radio buttons.
+How can a developer meet this requirement?
+a. Create a formula field that displays the interview score as a set of radio buttons
+b. Create a visualforce component to display the interview score as a set of radio bttons
+c. Create the Interview Score field with a data type of radio button
+d. Create the interview score field as a picklist, displayed as a radio button on the pane layout
+Ans : b
+20. When performing an update with the Data Loader, the comma-delimited file must contain a column with which values?
+a. The profile names of the record owners
+b. The created time and date of the records
+c. The Force.com record ID values of the records
+d. The logical names of the records
+Ans : c
+21. A developer would like to enable end users to filter the data displayed on the related list of an object detail page
+How could a developer accomplish this?
+a. Customize the search filter fields layout for that object
+b. Enable Advanced Search on the object’s related list
+c. Create a Visualforce page to replace die object detail view
+d. Configure the object’s related list to add a filter
+Ans : c
+22. Which action is available to a developer when two objects are connected by a lookup relationship? Choose 2 answers
+a. Create a roll-up summary field on the parent object to count child records
+b. Create a cross-object formula field on the parent object to reference fields on the child object
+c. Create a custom report type that allows customization of fields displayed from both parent and child objects
+d. Create a cross-object formula field on the child object to reference fields on the parent object
+Ans : c ,d
+23. Which statement is TRUE about the custom object import wizard?
+a. It can import, upsert, update, delete and export data
+b. It can perform matching based on record ID only
+c. It can provide success and error files in .csv format
+d. It can prevent the import of duplicate records
+Ans : d
+24. Give a three tier model ( UI layer, business logic layer, data layer), which feature of the Force.com platform associated with the data layer? Choose 3 answers
+a. Custom fields
+b. Custom tabs
+c. Custom relationships
+d. Custom objects
+e. Custom applications
+Ans : a, c, d
+25. Which developer tool can be used to create a data model? Choose 2 
+a. Schema Builder
+b. Foce.com Data Loader
+c. Application Data Model wizard
+d. Force.com IDE
+Ans : a, d
+26. Which mechanism allows for authenticated access to a Force.com site? Choose 2
+a. It is not possible to provide authentication for a Force.com Site
+b. An active Customer Portal
+c. An active Partner Portal
+d. Setting restricted IP ranges for your site
+Ans : b, c
+27. In a recruiting application, a master-detail relationship has been defined between two custom objects, Job Applications (master) and Reviews (detail). Which statement is TRUE? Choose 2 answers
+a. Review records may exist without an associated job application
+b. The master-detail relationship between Job Applications and Reviews is defined on the Job Application object
+c. Deleting a Job application record will delete associated review records
+d. Review records will inherit ownership from the associated job application
+Ans : c, d
+28. What can be viewed using the process visualizer?
+a. Support processes
+b. Sales processes
+c. Approval processes
+d. Workflow Rule
+Ans : c
+29. Which dashboard component displays a grand total across a set of data? Choose 2 answers
+a. Table
+b. Chart
+c. Pivot
+d. Metric
+Ans : a, d
+30. Users X and Y need to see the same candidate record. For security reasons, user Y should not be able to report on the Email Address field on the record.
+How would a developer meet this requirement?
+a. Use field-level security to make the email address visible to user X but not user Y
+b. Use a sharing rule to make the email address only visible to user X
+c. Use a custom visualforce page to make the email address visible to user X but not user Y
+d. Use page layouts to make the email address visible to user X but not user Y
+Ans : a
+31. A developer wants to build an application on the Force.com platform. The data model, the users needing access to the application, and the application business logic have been considered. The report and dashboard requirements have not been considered.
+Which statement is TRUE about building the application?
+a. The dashboard will not be visible to management users
+b. The data model may not support the required reports/ required security controls
+c. The data model may not support the required business logic
+d. The developer will not be able to load application data
+Ans : b
+32. How can a wireless device user approve a record? Choose 3 answers
+a. Via voice recognition
+b. Via Approvals in Chatter
+c. Via email from a wireless device
+d. Via a text message
+e. Via a mobile browser that supports access to the Salesforce web application
+Ans : b, c, e
+33. For objects where data access is granted through the role hierarchy, how is access granted?
+a. Users are only granted read access to data owned by users above them in the role hierarchy
+b. Users are granted access to data accessible by users below them in the role hierarchy
+c. Users are granted access to data accessible to users in the same role in the role hierarchy
+d. Users are only granted access to data owned by users below them in the role hierarchy
+Ans : d
+34. Universal containers tracks Offers as an object in a recruiting application. Once an offer has been accepted by a candidate, mere must be a value in a currency field called Actual Salary.
+How would a developer meet this requirement?
+a. Create a validation rule to make actual salary required each time the offer record is saved
+b. Create a field dependency between the salary amount and status of accepted
+c. Create a workflow field update to set the property of the actual salary field to required
+d. Create a validation rule to make sure that the actual salary is not null whenever an offer is accepted
+Ans :  d
+35. Which statement is true regarding Force.com Sites? Choose 3 answers
+a. Sites can leverage declarative page layouts as web pages
+b. Sites enables developers to build public, unauthenticated websites
+c. Sites are built with visualforce pages
+d. Sites leverage data and content in a salesforce org
+Ans :  b, c, d
+36. Which field is available as part of the translation workbench for a validation rule?
+a. Error Message
+b. Description
+c. Rule Criteria
+d. Formula
+Ans : a
+37. Which property of a field can be edited within the page layout editor? Choose 2 answers
+a. Always displayed
+b. Required
+c. Field Dependency
+d. Controller
+e. Read-only
+Ans :  b, e
+38. What is not a component of a custom Force.com application?
+a. Default landing tab
+b. Data warehouse
+c. Custom tab
+d. Custom object
+Ans :  b
+39. What can cross-object formulas reference?
+a. Parent object records only
+b. Other records of the same object
+c. Both parent and child object records
+d. Child object records only
+Ans :  a
+40. A business requirement can be met by using either a formula field or an Apex trigger.
+Why would a developer use a formula field instead of an Apex trigger? Choose 2 answers
+a. Formula fields do not require test methods to deploy
+b. Formula fields allow greater control and flexibility than Apex triggers
+c. Formula fields can aggregate data from child records
+d. Formula fields can be created and deployed using only a browser
+Ans : a, d
+41. Object B has a lookup relationship to Object A. Object C has a lookup relationship to Object A. A developer needs to run a report on A records with C records.
+How can the developer accomplish this?
+a. Create a summary report with a custom summary formula summarizing by A, then B, then C
+b. Create a custom report type that includes A with B with C
+c. Create a matrix report with A and B records as column headings and C records as row headings
+d. Run a report using the standard report type: A with B with C
+Ans : b
+42. In a custom order management application, universal containers requires that the product name and product code are consistent according to a custom object set up with valid product name and product code combinations. When a user enters an order, the system should check to ensure that the product name and product code entered are valid
+Which feature would a developer use to accomplish this?
+a. A validation rule with the VLOOKUP function
+b. A validation rule with the REGEX function
+c. A formula field with the IF function
+d. A formula field with the VALIDATE function
+Ans : a
+43. Which standard profile has the “View Encrypted Data” permission by default?
+a. Solution manager profile
+b. System administrator profile
+c. No profile has the permission active by default
+d. Standard user pro file
+Ans :  c
+44. Universal Containers tracks Positions as a custom object in a recruiting application. All positions with a priority of critical should NOT be open for more than two weeks. If a position remains open for more than 14 days, the priority should be re-examined.
+How would a developer automate this process?
+a. Create a workflow action to clone the position, assigned to the owner of the position record, that is due 14 days after record creation.
+b. Create a validation rule that compares today’s date and the record’s creation date to determine if the difference is greater than 14 days
+c. Create a time-dependant workflow action that sends an email to the recruiter if the position is still open 14 days after record creation
+d. Create a time-dependant workflow action that updates the position status to closed 14 days after record creation
+Ans : c
+45. If a change is made to an approval process, how can a developer determine the user that made the change? Choose 2 answers.
+a. By examining the Debug Log
+b. By looking at “Modified By” on the approval definition
+c. By checking the field history on the associated record
+d. By examining the setup audit nail
+Ans : b, d
+46. A developer would like to modify the contents of the hover details for a custom object called Position.
+What would a developer customize to accomplish this?
+a. Position search layouts
+b. Position record types
+c. Position field dependencies
+d. Position page layouts
+Ans : d
+47. A developer had added a custom object tab to an application
+Which additional feature will become available by default for the object in the application?
+Choose 3 answers
+a. Create a new sidebar component
+b. Custom reporting
+c. Search
+d. Quick create
+e. Recent items
+Ans : a,c,e
+48. In a master-detail relationship, what happens to the child records if the parent record is deleted?
+a. Child records are not deleted
+b. A subset of the child records is deleted
+c. Parent record deletion fails
+d. Child records are deleted
+Ans : d
+49. Hiring managers at Universal containers would like a visual mechanism for determining review score outliers. Review scores are captured as a custom field on a custom Review object and can range from 1 to 10. Any review score that is >8 should be highlighted in green. Any review score that is < 4 should be highlighted in red.
+How would a developer accomplish this?
+a. Use custom summary formulas
+b. Use matrix reports
+c. Use conditional highlighting
+d. Use charts
+Ans : a
+50. A developer need to perform an automated extract of data from Salesforce nightly at 2:00 a.m.
+How would the developer accomplish this?
+a. Use the Export Scheduler of the Data Loader’s GUI
+b. Use the Command-line interface of the Data Loader
+c. Use the Data Export service to perform a nightly extract
+d. Use the Schedule Manager of the import wizard
+Ans : b
+51. Universal Containers has built a recruiting application on the Force.com platform. In the application, recruiting managers need to see how the number and status of candidates in the pipeline changes month over month.
+which feature enables this land of analysis?
+a. Custom summary formulas
+b. Dashboards
+c. Analytic snapshots
+d. Custom report types
+Ans : c
+52. Master-detail relationships can be used to model many-to-many relationships between two objects.
+Which statement is TRUE about many-to-many relationships? Choose 3
+a. Each use a junction object to connect the two objects that need to relate to each other
+b. Each master object record displays a related list of the associated junction object records
+c. Each record of one object is linked to multiple records from another object and vice versa
+d. Each primary and secondary object has a standard report but custom report types are not available
+Ans : a, b, c
+53. Universal Containers requires that some employees are able to view and edit records of a custom object called Positions, but no users can delete them
+How can Universal Containers accomplish this goal?
+a. Remove the Delete Access for positions from all user roles
+b. Remove the Delete Permission for positions from all profiles
+c. Set the Organization wide default for positions to Read-Only
+d. Assign the Read-Only profile to all users
+Ans : b
+54. In a recruiting application, all users should be able to see positions with a status of Open. If the status is anything other that Open, the position should be visible only to the record owner.
+How would a developer accomplish this? Choose 2 answers
+a. Set the organization-wide default for position to private, then use a criteria based sharing rule to automatically share open positions
+b. Set the organization-wide default for position to public read-only, then use a sharing rule to restrict access to closed positions
+c. Set the organization-wide default for position to private, allowing owners to use manual sharing to add or remove access as positions change status
+d. Specify view only access for open positions on users profiles
+Ans : a, c
+55. Why might an analytic snapshot fail during a scheduled run? Choose 3 answers
+a. The running user has been made inactive
+b. The source report has been resaved as a matrix report
+c. The target object contains an Apex trigger
+d. The target object is a custom object
+e. The source report was not created by an Administrator
+Ans : a, b, c
+56. Object X has a lookup field to Object Y. X needs to display a text value from a Text field on Y.
+To ensure data integrity, how would a developer implement this?
+a. Create a roll-up summary field on Object X but that retrieves the value from Y
+b. Create a cross-object formula field on Object X that retrieves the value from Y
+c. Create a text field on Object X and use Apex to populate the value
+d. Create a text field on Object X and use a workflow rule to fill in the value upon the creation of X
+Ans : b
+57. In a bug tracking application, Universal Containers has created a time-based workflow action that will execute 30 days after a Bug record is created. The developer would like to test to make sure that rule is working the way that it should. 
+Which feature is available for  testing? Choose 2 answers
+a. Bug History related list
+b. Debug Log
+c. Time-based workflow queue
+d. Acitivity History related list
+Ans : b, c
+58. When loading Account, Contact and User data, what represents the recommended order to load the data?
+a. Load Accounts, then Contacts, then Users
+b. The order does not matter
+c. Load Contacts, then Accounts, then Users
+d. Load Users, then Accounts, then Contacts
+Ans : d
+59. Which type of tab can a developer create? Choose 3 answers
+a. Apex tabs
+b. Custom object tabs
+c. Visualforce tabs
+d. Standard object tabs
+e. Web tabs
+Ans : b, c, e
+60. Custom objects automatically have some standard fields
+a. True
+b. False
+Ans : a
+61. ________lookup relations are allowed per object
+a. 10
+b. 20
+c. 25
+d. 40
+Ans : c
+62. Junction object is a Custom Object with three master detail relationships
+a. True
+b. False
+Ans : b
+63. Encrypted fields allow for masking data for all users except those with the _____permissions
+a. Read all data
+b. View all Data
+c. Modify all data
+d. Administrator permissions
+Ans : b
+64. You can upgrade your Apps of the following types:
+a. Managed Packages
+b. Unmanaged Packages
+c. You can’t upgrade the Apps once published
+d. Installed Packages
+Ans : a
+65. Which action is NOT necessary when using the declarative capabilities of the Force.com platform to build custom applications? Choose 3 answers
+a. Compile code
+b. Configure an application server
+c. Write SQL queries to create reports
+d. Build a data model
+Ans : a, b, c
+66. when configuring time-dependent workflow actions, which evaluation criteria selection is available? Choose 2 answers
+a. every time a record is viewed
+b. every time a record is created or edited
+c. only when a record is created
+d. when a record is created, or when a record is edited and did not previously meet the rule criteria
+Ans : c, d
+67. A developer is building a custom application using the declarative framework. Which customization is available on the page layout? Choose  2 answers
+a. Add an existing Visualforce page to an inline section
+b. Make a field Required, based on a data value in another field
+c. Create a three-column section
+d. Add custom detail and list buttons
+Ans : a, d
+68. In a  recruiting application using an approval process on a custom object called Positions. A position record requires simultaneous approvers in an approval process step
+When can the position record advance to the next step in the process? Choose 2 answers
+a. When all approvals are received if unanimous approval is required
+b. When one of the approvers skips the final step in the process
+c. When the first approval is received if unanimous approval is not required
+d. When a majority of approvals is received when amajority approval is required
+Ans : a, c
+69. In a recruiting application, all users should be able to see and edit all candidate records, but interviewers should NOT have access to the address of a candidate and should NOT be able to see the birth date of a candidate.
+How would a developer meet this requirement?
+a. Set the organization wide default for candidates to Edit some fields
+b. Set the organization wide defaults for candidates to Read-Only
+c. Remove the Edit permission on candidate from the interviewer’s profile
+d. Use field-level security to control access to the Address and Birth Date fields
+Ans : d
+71. Two master-detail relationship need to be created on Object x. The first master-detail relationship created is the primary master, and the second is Secondary master.
+What is an effect of the primary relationship on x?
+a. There will be no effect on x
+b. X will inherit the look and feel of the primary master object
+c. ma are limited to the primary relationship
+d. The primary relationship cannot be deleted
+Ans : b
+72. Users X and Y need to see the same candidate record. For security reasons, user Y should NOT be able to view and read address field on the record.
+How would a developer meet this requirement?
+a. Use a sharing rule to make the email address only visible to user X
+b. Use field-level security to make the email address visible to user X but not user Y
+c. Use page layouts to make the email address visible to user X but not user Y
+d. Use a custom Visualforce page to make the email address visible to user X but not user Y
+Ans : b
+73. Universal containers would like to enforce a new policy for job offers. Any job offer with a salary greater than $50,000 is hiring manager. Any job offer with a salary greater than $100,000 is approved first by the hiring manager, then by the senior manager. After these approvals, all offers must finally be approved by the VP of HR.
+How would a developer meet this requirement?
+a. Workflow
+b. Parallel Approvers
+c. Dynamic Approval Routing
+d. Approval Processes
+Ans : c
+74. Which scenario requires Apex to automate the real-time business logic?
+a. As a user saves a new order ( a custom object), the quantity and products on the order are checked against stock ( a custom object), then the warehouse that the product will ship from on the order record is populates.
+b. When a user creates a new Time Off Request record ( a custom object) and clicks Submit for Approval
+c. When a user enters a State and Zip Code into custom fields on a Candidate custom object, it must be check custom object to ensure that the Zip Code entered does exist in the State entered.
+d. When a user saves a New Hire record ( a custom object), an outbound message is automatically sent with information to an external HR system
+Ans : a
+75. What is a capability of Data Loader? Choose 2 answers
+a. The Data Loader can load more than 50,000 records at a time
+b. The Data Loader can bypass sharing model settings
+c. The Data Loader can be executed from the command line
+d. The Data Loader can de-duplicate records
+Ans : a, c
+76. How can users be allowed to create new records of Object Y from the Create New drop-down list in the sidebar?
+a. Enable the setting in the sidebar for each user
+b. Create s new sidebar component
+c. Edit the sidebar component to display Object Y
+d. Add Y’s tab to the user’s displayed tabs
+Ans : d
+77. Universal Containers tracks Positions in a custom object as part of a recruiting application, New positions must be approve can be filled. Only recruiting managers can submit new positions for approval.
+a. Create a recruiting managers group, set approvals to private and create a sharing exception for recruiting manager
+b. Create a workflow rule whereby only users with the recruiting manager profile are allowed to submit positions for approval
+c. Create a validation rule that check whether a user with the recruiting manager profile is saving the new positions for approval
+d. Create an approval process whereby only users with the recruiting manager role are allowed to submit position
+Ans : d
+78. What is a feature of custom report types? Choose 2 answers
+a. The ability to customize the output layout of a report
+b. The ability to customize the available list of columns displayed in the report builder interface
+c. The ability to create an exception report or anti-join
+d. The ability to join related objects within a report
+Ans : b, d
+79. Which relationship type should be used to capture a user’s manager on each user record in the application?
+a. Man-to-many
+b. Master-detail
+c. Parent-child
+d. Hierarchical
+Ans : d
+80. How many master-detail relationship can be created on one object?
+a. 2
+b. 1
+c. 4
+d. 3
+Ans : a
+81. Universal  Containers tracks Candidates as a custom object in a recruiting application. On a candidate record, the city entry field must be in the state selected in the state field.
+How would a developer meet this requirement using declarative (point and click) means?
+a. Create a dependency on the Address field that ensures only valid cities are selected for a given state
+b. Create a Formula field on the address object that looks up the state for the entered city
+c. Create a validation rule that checks the city entered against an object to validate the state for the entered city
+d. Create a Workflow outbound message that sends city and state information to an external global database of known states
+Ans : a
+82. After creating Workflow Rule with a time-based action that send an email reminder to users 14 days after a record has been developed would like to test to make sure that the rule is working the way in which it was intended.
+How can the developer verify that the Workflow Rule is working? Choose 2 answers
+a. Create a new record, then check the outbound message queue
+b. Select the developer’s user name in the time-based Workflow queue setup, create a new record, then check the queue
+c. Select the developer’s user name in the Debug Log setup, create a new record, then check the Debug Log for evidence Workflow executed
+d. Create a new record, then check the time-based Workflow queue
+Ans : c, d
+83. In a recruiting application, a custom Job Application object has a lookup relationship to a custom candidate object. The Candidate stores personal information, including name and email, about an individual applying for a job. The recruiting organization would like the candidate’s name and email address on each related job application record as well.
+How can a developer meet this requirement?
+a. It is not possible for a developer to meet this requirement
+b. Use a validation rule to copy the name and email from the candidate record to the job application record
+c. Use a cross-object formula field to display the name and email from the candidate record to the job application record
+d. Use a cross-object assignment rule and field update action to copy the name and email from the candidate record to the job application record
+Ans : c
+84. In a custom object defect tracking application, a custom object called Bug is used to track defects. The bugs often have a relationship to bugs in a parent-child fashion
+Which relationship should a developer choose to model the interdependency between bugs?
+a. Hierarchical
+b. Self
+c. Master-detail
+d. Many-to-many
+Ans : b
+85. Which is required step for creating a many-to-many relationship? Choose 2 answers
+a. Create two relationships
+b. Create a custom object to join two objects
+c. Create a many-to-many relationship between two objects
+d. Create the related list on the page layout of the junction object
+Ans: a, b
+86. In a custom recruiting application, Positions and Candidates are stored in separate custom objects, when looking at the details position record, a hiring manager need to see a list of recommended candidates instead of all candidates, based on matching
+How could a developer meet this requirement?
+a. Add a dashboard to the position page layout
+b. Add the candidates related list to the Position page layout
+c. Add a look up relationship to the Candidate object
+d. Add an inline Visualforce page on the Position page layout
+Ans : d
+87. Upon final rejection of a record that has been through an approval process, which action is NOT allowed?
+a. Locking the record from being edited
+b. Sending an email to the record owner
+c. Sending the record to the recycle bin
+d. Creating a task for the record owner
+Ans : c
+88. Which element is included in the security model for Force.com Sites? Choose 2 answers
+a. Full CRUD permissions on all custom objects
+b. Read/write permissions on all standard objects
+c. Named Visualforce pages
+d. Restricted IP ranges
+Ans : c, d
+89. Positions and Job Applications are custom objects in a recruiting application. There is a lookup relationship on Job Applications to A developer wants to see a list of the top ten positions with the greater number of related job applications. 
+Which dashboard component should the developer choose?
+a. Chart
+b. Metric
+c. Table
+d. Guage
+Ans : c
+90. How can a developer configure an approval process to prevent a record from being edited by the submitter?
+a. Records are locked by default on submission; no action required
+b. Set an action to look the record upon submission
+c. Create a Workflow field update action to make the page layout Read-only
+d. Develop a sharing rule that sets the record to Read-only
+Ans : b
+91. A developer attempts to load data into the sandbox environment using the Data Loader GUI. The data load fails due issues.
+What should the developer check to diagnose the problem? Choose 2 answers
+a. The endpoint URL
+b. The user name
+c. The password encryption settings
+d. The mapping file
+Ans : a, b
+92. What is supported by the Force.com Data Loader? Choose 3 answers
+a. Perform insert and update operations across a set of records
+b. Load more than 50,000 records at a time
+c. Perform a rollback of a transaction
+d. Insert records for two different objects in a single call
+e. Import data for custom objects
+Ans : a, b, e
+93. Which statement is TRUE about Encrypted Custom fields? Choose 3 answers
+a. Encrypted fields can be included in search results
+b. Encrypted fields are not available for validation rules or Apex scripts
+c. Encrypted fields can be included in report results
+d. Encrypted fields are not available in filters for list views, reports and Roll-up Summary fields
+Ans : a, c, d
+94. A developer wants to report on trends in the data.
+Which feature of the Force.com platform would a developer use to accomplish this?
+a. Analytic Snapshot
+b. Field History
+c. Summary Report
+d. Matrix Report
+Ans : a
+95. A group of executives has requested a convenient way to see daily metrics without having to log in to Salesforce. How would a developer accomplish this?
+a. Set the user’s home page layouts to include a dashboard
+b. Create a workflow rule that sends a link to the dashboard in an email
+c. Schedule a dashboard for daily refresh and email distribution
+d. Create a series of daily recurring events providing the dashboard link
+Ans : c
+96. When creating a workflow rule, which action requires a formula as the rule criteria?
+a. Checking if the current user’s profile is System Administrator
+b. Checking if the value in a field has changed
+c. Checking if the record was modified today
+d. Checking if the status of a record is new
+Ans : b
+97. Which option exists for calculations or analysis in reports? Choose 3 answers
+a. Maintain calculations from previous runs of the report
+b. Plot multiple sets of data on one chart
+c. Set parameters to highlight outliers
+d. Perform calculations on summary data
+Ans : b, c, d
+98. Which option is available when configuring the list if initial submitters in an approval process? Choose 2 answers
+a. Roles and subordinates
+b. Approval team members
+c. Public groups
+d. Profiles
+Ans : a, c
+99. When do users have the option to manually share records they own from the record detail page?
+a. When a developer adds the Sharing button to the page layout
+b. When the organization wide default for the object is set to pubic read/write
+c. When a developer grants the users the Share Records permission
+d. When the organization wide defaults for the object is set to private or read-only
+Ans : d
+100.Which aspect of an application is addressed in the business logic layer? Choose 2 answers
+a. Customized user interface
+b. Process automation
+c. Extensible data model
+d. Data entry validation rules
+Ans : b, d
+101. A developer wants to build an application on the Force.com platform. The data model, the business logic and the requirements have been considered. The user access requirements have not been considered.
+What is the implication of building the application given the available information? Choose 2 answers
+a. The data model may not support the required security controls
+b. The developer will not be able to build any reports or dashboards if the security controls have not been considered
+c. The security controls may not support the approval process requirements
+d. The developer cannot establish security controls if not completed upon initial setup.
+Ans : a, b
+102.  In a custom recruiting application, custom objects are used to track Positions and Job Posting site (e.g. Each position is typically posted to many job posting sites.
+Which additional object is required to relate Positions and Job Posting sites do that a user can report or associated with a give Posting site?
+a. Junction object  
+​b. Parent object
+​​c. Lookup object
+​d. Standard object
+Ans : a
+103. What occurs in an upsert operation if the external ID is matched on more than one record?
+a. An error is reported
+b. Duplicate records will be created with matching external Ids
+c. The upsert operation fails
+d. Only the first matching record will be updated
+Ans : a
+104. A custom object has an organization-wide default setting of private with Grant Access Using Hierarchies check box turned off. Which users can select the Sharing button on record for that object?
+a. The record owner, a user shared to the record, any user above the record owner in the role hierarchy administrator profile
+b. The record owner, a user above the record owner in the role hierarchy, and a user with the system
+c. Only the record owner and a user with the System Administrator profile
+d. The record owner, a user with the System Administrator profile, and a user shared to the record.
+Ans : c
+105. All users of a Recruiting application should be able to edit all positions, except for user X, User X should be view positions. How can a developer meet this requirement?
+a. Set the organization wide default for positions to public Read/Write and use a Sharing Rule to rest
+b. Set the organization wide default for positions to public Read/Write and remove user X from the role
+c. Set the organization wide default for positions to public Read-Only and remove user X from the role
+d. Set the organization wide default for positions to public Read-Only and use a Sharing Rule to all users except user X
+Ans : d
+106. Which process can be tracked in the Debug Logs? Choose 2 answers
+a. Assignment rule
+b. Roll-up Summary field calculation
+c. Formula field calculation
+d. Workflow rules
+Ans : a, d
+107. Which API can be used to create the data model?
+a. Force.com API
+b. Force.com Single Sign-on API
+c. Force.com Metadata API
+d. AJAX toolkit for Force.com
+Ans : c
+108. The organization-wide default settings for Accounts is Private. A manger resides above a team in the role share some of the account data with the team.
+Which feature can extend the viewing privileges of the team to allow them to see each other’s data? Choose 2 answers
+a. Report Folder setting
+b. Dashboard Running User
+c. Report Running User
+d. Dashboard Folder setting
+Ans : b, c
+109. Which capability does building an application on the Force.com platform provide? Choose 3 answers
+a. The ability to internationalize and localize applications
+b. The ability to run reports on configuration changes
+c. The ability to build applications with clicks not code
+d. The ability to have applications upgraded without loosing customizations
+Ans : a, c, d
+110. Which statement is true regarding a Force.com domain name? Choose 3 answers
+a. It must be unique
+b. It is usually the name of your company
+c. It cannot be changed once it is registered to your organization
+d. It cannot be mapped to your company’s domain
+Ans : a, b, c
+111. A developer has received confirmation that salesforce.com has enabled insertable system audit fields for records. Which ability is now enabled when using the data loader?
+a. Ability to insert account records setting the IsDeleted field of each record
+b. Ability to insert account records settings the $MarkSync field of each record
+c. Ability to insert account records settings the CreatedDate field of each record
+d. Ability to insert account records settings the SystemModStamp field of each record
+Ans : c
+112. Which Force.com feature most closely aligns with the View aspect of the Model-View-Controller design pattern. Choose 2 answers
+a. Validation rule    
+b. Page layout   
+c. Custom field  
+d. Visualforce page
+Ans : b, d
+113. A developer is loading data, in CSV format, into a custom application from a legacy system. The user object, and positions and job applications owned by named users into related custom object.
+Which obstacle will the developer encounter when using the import wizard?
+a. The import wizards cannot import data from CSV files
+b. The import wizards do not support the User object
+c. The import wizards do not support custom object
+d. The import wizards do not import files to specify record owner
+Ans : b
+114. In a lookup relationship, what happens to the child records if the parent record is deleted?
+a. Child records are not deleted
+b. A subset of the child records is deleted
+c. Child records are deleted
+d. Parent record deletion fails
+Ans : a
