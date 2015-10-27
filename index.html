@@ -10,6 +10,10 @@
         <!-- <link rel="stylesheet" href="css/style.css"> -->
         
         <style>
+        	body {
+        		font-family: Verdana;
+        		font-size: 20px;
+        	}
         	#showAnswersSection {
         		text-align: left;
         	}
@@ -33,33 +37,33 @@
         	}
         	#wrongAnswersSection {
         		display: none;
-        		font-size: 20px;
+        		/*font-size: 20px;*/
 				font-family: verdana;
         	}
         	#correctAnswersSection {
         		margin-top: 10px;
         		display: none;
-        		font-size: 20px;
+        		/*font-size: 20px;*/
 				font-family: verdana;
         	}
         	#wrongQuestionsSection {
         		display: none;
-        		font-size: 20px;
+        		/*font-size: 20px;*/
 				font-family: verdana;
         	}
         	#questionBodySection {
-        		font-size: 25px;
+        		/*font-size: 25px;*/
         		font-family: verdana;
         		margin-bottom:10px;
         		font-weight: bold;
     		    white-space: pre-wrap;
         	}
         	#answersSection {
-        		font-size: 23px;
+        		/*font-size: 23px;*/
 				font-family: verdana;
 			}
 			#answersSection input {
-				font-size: 25px;
+				/*font-size: 25px;*/
 				margin-right:10px; 
 			}
 			button {
@@ -70,7 +74,7 @@
 				font-family: verdana;
 			}
 			#markedQuestionsSection {
-				font-size: 20px;
+				/*font-size: 20px;*/
 				font-family: verdana;
 			}
 			#markedQuestionsSectionHeader {
@@ -87,13 +91,43 @@
 			.correctAnswerStyle {
 				background: yellow;
 			}
+			
+			input {
+			    vertical-align: middle;
+			}
+			
+			#shuffleQuestionsDiv {
+				margin-top: 20px;
+			}
+			
+			.fontSizeIcon {
+				width: 30px;
+				cursor: pointer;
+			}
+			#fontSizeDiv {
+				position: fixed;
+				right: 20px;
+				bottom: 20px
+			}
+			#returnToMainMenuButton {
+				position: fixed;
+				left: 20px;
+				bottom: 20px				
+			}
+			#jumpToQuestionInput {
+				margin-right: 10px;
+				font-size: 20px;
+			}
         </style>
     </head>
-    <body>
-		<button id="startExamButton">Start Exam</button>
-		<button id="startPracticeButton">Practice</button>
-		<div id="shuffleQuestionsDiv">
-			<label for="shuffleQuestionsCheckbox">Shuffle Questions?</label> <input type="checkbox" id="shuffleQuestionsCheckbox"/>
+    <body onload="onBodyLoad()">
+    	<div id="menuSection">
+			<button id="startExamButton">Start Exam</button>
+			<button id="startPracticeButton">Practice</button>
+			<div id="shuffleQuestionsDiv">
+				<label for="shuffleQuestionsCheckbox">Shuffle Questions?</label> <input type="checkbox" id="shuffleQuestionsCheckbox"/><br/>
+				<label for="shuffleAnswersCheckbox">Shuffle Answers?</label> <input type="checkbox" id="shuffleAnswersCheckbox"/>
+			</div>
 		</div>
 		<div id="questionsSection">
 			<div id="questionBodySection">
@@ -114,9 +148,9 @@
 				<button id="nextQuestionButton">Next</button>
 			</div>
 			<div id="showAnswersSection">
-				<button id="showAnswersButton">Show answers</button> <br/>
-				<label for="jumpToQuestionInput">Jump to question</label><input type="number" id="jumpToQuestionInput"/><button id="jumpToQuestionButton">Go</button>
+				<button id="showAnswersButton">Show Answers</button> <br/>
 			</div>
+			<label for="jumpToQuestionInput">Jump to question: </label><input type="number" id="jumpToQuestionInput" maxlength="4" size="4"/><button id="jumpToQuestionButton">Go</button>
 			<div id="markedQuestionsSection">
 				<div id="markedQuestionsSectionHeader">
 					Marked questions: 
@@ -130,6 +164,13 @@
 					Wrong answered questions: 
 				</div>
 			</div>
+			<div id="fontSizeDiv">
+				
+				<img class="fontSizeIcon" src="images/fontsizeup.png" addition="1"/>
+				<img class="fontSizeIcon" src="images/fontsizedown.png" addition="-1"/>
+				
+			</div>
+			<button id="returnToMainMenuButton">Return to main menu</button>
 		</div>
     </body>
 </html>

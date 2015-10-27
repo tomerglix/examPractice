@@ -2,62 +2,75 @@ var text = "";
 var questions;
 var shuffledQuestions;
 var practice = false;
-var shuffle = false;
-var showAnswers = true;
-$(function() {
-  		 $.ajax('docs/source.txt',
-  		 {
-  		 	dataType: "text",
-  		 	async: false,
-  		 	fail: function(){alert("failed to load file");},
-  		 	success: function(data) {	
-  				text = data;
-  				var array = text.split("\n");
-  				questions = prepareQuestionsArray(array);
-  		 	}
-  		 });
-  		 
-  		 $("#startExamButton").click(startExam);
-  		 $("#previousQuestionButton").click(goToPreviousQuestion);
-  		 $("#nextQuestionButton").click(goToNextQuestion);
-  		 $("#submitExamButton").click(submitExam);
-  		 $("#startPracticeButton").click(startPractice);
-  		 $("#markQuestionButton").click(markQuestion);
-  		 $("#showAnswersButton").click(toggleShowAnswers);
-  		 $("#jumpToQuestionButton").click(jumpToQuestion);
-  		 $("#shuffleQuestionsCheckbox").change(function(){
-  		 	shuffle = $(this).prop("checked");
-  		 	
-  		 });
-  		 
-  		 $("#jumpToQuestionInput").focus(function(){
-  		 	$(this).val("");
-  		 });
-  		 
-  		 $(document).keyup(function(e) {
-  		 	var code = e.keyCode || e.which;
-  		 	switch(code) {
-  		 		case 13: case 39: {
-  		 			$("#nextQuestionButton:visible").click();
-  		 			break;
-  		 		} 
-  		 		case 37: case 8: {
-  		 			$("#previousQuestionButton:visible").click();
-  		 			break;
-  		 		}
-  		 		case 32: {
-  		 			$("#markQuestionButton:visible").click();
-  		 			break;		 			
-  		 		}
-  		 		default : break;
-  		 	}
-  		 });
-});
+var shuffleQuestions = true;
+var shuffleAnswers = true;
+var showAnswers = false;
+var baseFontSize = 20;
+
+function onBodyLoad() {
+	shuffleQuestions = localStorage.getItem("shuffleQuestions") == "true";
+	shuffleAnswers = localStorage.getItem("shuffleAnswers") == "true";
+	baseFontSize = localStorage.getItem("baseFontSize") ? parseInt(localStorage.getItem("baseFontSize")) : 20; 
+	$("#shuffleQuestionsCheckbox").prop("checked",shuffleQuestions);
+	$("#shuffleAnswersCheckbox").prop("checked",shuffleAnswers);
+	$("#startExamButton").click(getQuestionsFromSource);
+	$("#previousQuestionButton").click(goToPreviousQuestion);
+	$("#nextQuestionButton").click(goToNextQuestion);
+	$("#submitExamButton").click(submitExam);
+	$("#startPracticeButton").click(startPractice);
+	$("#markQuestionButton").click(markQuestion);
+	$("#showAnswersButton").click(toggleShowAnswers);
+	$("#jumpToQuestionButton").click(jumpToQuestion);
+	$(".fontSizeIcon").click(changeFontSize);
+	$("#returnToMainMenuButton").click(returnToMainMenu);
+	$("#shuffleQuestionsCheckbox").change(function(){
+	 	shuffleQuestions = $(this).prop("checked");
+	 	localStorage.setItem("shuffleQuestions",shuffleQuestions);
+	});
+	$("#shuffleAnswersCheckbox").change(function(){
+	 	shuffleAnswers = $(this).prop("checked");
+	 	localStorage.setItem("shuffleAnswers",shuffleAnswers);
+	});
+	 
+	$("#jumpToQuestionInput").focus(function(){
+	 	$(this).val("");
+	});
+	 
+	$(document).keyup(function(e) {
+	 	var code = e.keyCode || e.which;
+	 	switch(code) {
+	 		case 13: case 39: {
+	 			$("#nextQuestionButton:visible").click();
+	 			break;
+	 		} 
+	 		case 37: case 8: {
+	 			$("#previousQuestionButton:visible").click();
+	 			break;
+	 		}
+	 		case 32: {
+	 			$("#markQuestionButton:visible").click();
+	 			break;		 			
+	 		}
+	 		default : break;
+	 	}
+	});
+}
+
+function returnToMainMenu(e) {
+	practice = false;
+	if (confirm("Are you sure? Your current session will be lost.")) {
+		$("#menuSection").show();
+		$("#questionsSection").hide();
+	}
+}
 
 function jumpToQuestion(e) {
   try {
   	var questionIndex = parseInt($("#jumpToQuestionInput").val()) - 1;
-  	displayQuestion(questionIndex);
+  	if (!isNaN(questionIndex) && questionIndex >= 0 && questionIndex < shuffledQuestions.length) {
+  		displayQuestion(questionIndex);
+  	}
+  	
   } catch (ex) {
   	
   }
@@ -68,9 +81,11 @@ function toggleShowAnswers(e) {
 	if (showAnswers) {
 		$("#correctAnswersSection").show();
 		$(".correctAnswer").addClass("correctAnswerStyle");
+		$("#showAnswersButton").text("Hide answers");
 	} else {
 		$("#correctAnswersSection").hide();
 		$(".correctAnswer").removeClass("correctAnswerStyle");
+		$("#showAnswersButton").text("Show Answers");
 	}
 }
 
@@ -80,11 +95,19 @@ function markQuestion(e){
 	var $button = $(".markedQuestionButton[question-index='" + questionIndex + "']");
 	if ($button.length > 0) {
 		$button.remove();
+		$("#markQuestionButton").text("Mark Questios");
 	} else {
 		$button = $("<button question-index='" + questionIndex + "' class='markedQuestionButton'>" + (questionIndex+1) + "</button>");
 		$("#markedQuestionsSection").append($button);
 		$button.click(goToWrongQuestion);
+		$("#markQuestionButton").text("Unmark Question");
 	}
+	
+		// if ($button.length > 0) {
+		// $("#markQuestionButton").text("Unmark Quesions");
+	// } else {
+		// $("#markQuestionButton").text("Mark Quesions");
+	// }
 	if ($(".markedQuestionButton").length > 0) {
 		$("#markedQuestionsSectionHeader").show();
 	} else {
@@ -111,6 +134,7 @@ function submitExam(e) {
 		$("#correctAnswersSection").show();
 		$("#markQuestionButton").hide();
 		displaywrongQuestionsIndices(wrongQuestionsIndicesArray);	
+		showAnswers = true;
 		displayQuestion(0);
 	}
 }
@@ -132,12 +156,6 @@ function displaywrongQuestionsIndices(wrongQuestionsIndicesArray) {
 function goToWrongQuestion(e) {
 	var questionIndex = $(this).attr("question-index");
 	var question = shuffledQuestions[questionIndex];
-	// var correctAnswersString = getCorrectAnswersAsString(question,", ");
-	// var chosenAnswersArray = question.chosenAnswers || [];
-	// var chosenAnswersString = chosenAnswersArray.join(", ");
-	// $("#wrongAnswersSection").append("<p>Correct answers: " + correctAnswersString + "</p>");
-	// $("#wrongAnswersSection").append("<p>Your answers: " + chosenAnswersString + "</p>");
-	// $("#wrongAnswersSection").show();
 	displayQuestion(questionIndex);
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 }
@@ -189,18 +207,41 @@ function onAnswerChange(e) {
 
 function startPractice(e) {
 	$("#submitExamButton").hide();
-	$("#correctAnswersSection").show();
-	$("#showAnswersSection").show();
+	// $("#correctAnswersSection").show();
 	practice = true;
-	startExam();
+	getQuestionsFromSource();
 }
 
+function getQuestionsFromSource() {
+  		 $.ajax('docs/source.txt',
+  		 {
+  		 	dataType: "text",
+  		 	async: false,
+  		 	fail: function(){alert("failed to load file");},
+  		 	success: function(data) {	
+  				text = data;
+  				var array = text.split("\n");
+  				questions = prepareQuestionsArray(array);
+  				startExam();
+  		 	}
+  		 });
+}
+
+  		 
+
 function startExam() {
-	$("#startExamButton").hide();
-	$("#startPracticeButton").hide();
-	$("#shuffleQuestionsDiv").hide();
+	$("#jumpToQuestionInput").attr("placeholder","1 - " + questions.length);
+	$("#menuSection").hide();
+	// $("#startPracticeButton").hide();
+	// $("#shuffleQuestionsDiv").hide();
 	$("#questionsSection").show();
-	if (shuffle) {
+	if (!practice) {
+		$("#showAnswersSection").hide();
+	} else {
+		$("#showAnswersSection").show();
+	} 
+	
+	if (shuffleQuestions) {
 		shuffledQuestions = shuffleArray(questions);
 	} else {
 		shuffledQuestions = questions;
@@ -210,6 +251,7 @@ function startExam() {
 }
 
 function displayQuestion(index) {
+	setFontSizeOnElements();
 	if (index == 0) {
 		$("#previousQuestionButton").hide();
 	} else {
@@ -238,6 +280,14 @@ function displayQuestion(index) {
 	});
 	var wrongAnswerStr = wrongAnswersLetterArr.join(", ");
 	$("#wrongAnswersSection").text("Your answers: " + wrongAnswerStr);
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	var $markedQuestionButton = $(".markedQuestionButton[question-index='" + index + "']");
+	if ($markedQuestionButton.length > 0) {
+		$("#markQuestionButton").text("Unmark Quesions");
+	} else {
+		$("#markQuestionButton").text("Mark Quesions");
+	}
 	
 }
 
@@ -255,12 +305,14 @@ function createAnswersLayout(question,multiple) {
 		var answerIndexLetter = String.fromCharCode(answerIndexLetterCode);
 		var $label = $("<label>" + answerIndexLetter + ". " + answerBody + "</label>");
 		$label.attr("for",answerId);
-		if (practice && answer.correct) {
-			if (showAnswers) {
+		if (answer.correct) {
+			if (showAnswers ) {
 				$label.addClass("correctAnswerStyle");
 			}
 			$label.addClass("correctAnswer");
 		}
+		
+		
 		$answerElement.attr("answer-index",i);
 		$("#answersSection").append($answerElement);
 		$("#answersSection").append($label);
@@ -303,7 +355,7 @@ function prepareQuestionsArray(arr) {
 			}
 			question = question.trim();
 			var answers = [];
-			while (!line.startsWith("Ans")) {
+			while (!line.toLowerCase().startsWith("ans")) {
 				line = sliceAnswerOrQuestionIndex(line).trim();
 				if (line != "") {
 					var answer = new Answer(line,false);
@@ -322,7 +374,7 @@ function prepareQuestionsArray(arr) {
 				var index = correcIndexStr.toLowerCase().charCodeAt(0) - "a".charCodeAt(0);
 				answers[index].correct = true;
 			});
-			if (shuffle) {
+			if (shuffleAnswers) {
 				answers = shuffleArray(answers);	
 			}
 			
@@ -365,4 +417,28 @@ function shuffleArray(o){
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
 };
+
+function changeFontSize(e) {
+	var addition = parseInt($(this).attr("addition"));
+	var newFontSize = baseFontSize + addition;
+	if (newFontSize < 50 && newFontSize > 10) {
+		baseFontSize = newFontSize;
+		localStorage.setItem("baseFontSize",baseFontSize);
+		var questionIndex = $("#questionsSection").attr("question-index");
+		displayQuestion(questionIndex);
+	}
+}
+
+function setFontSizeOnElements() {
+	$("#wrongAnswersSection").css({"font-size" : baseFontSize + "px"});
+	$("#markedQuestionsSection").css({"font-size" : baseFontSize + "px"});
+	$("#wrongQuestionsSection").css({"font-size" : baseFontSize + "px"});
+	$("#markedQuestionsSection").css({"font-size" : baseFontSize + "px"});
+	$("#questionBodySection").css({"font-size" : (baseFontSize+5) + "px"});
+	$("#answersSection").css({"font-size" : (baseFontSize+5) + "px"});
+	$("#submitExamButton").css({"font-size" : (baseFontSize+20) + "px"});
+	$("#answersSection").css({"font-size" : (baseFontSize+3) + "px"});
+	// var questionIndex = $("#questionsSection").attr("question-index");
+	// displayQuestion(questionIndex);
+}
 
