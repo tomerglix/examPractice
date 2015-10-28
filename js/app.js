@@ -5,12 +5,15 @@ var practice = false;
 var shuffleQuestions = true;
 var shuffleAnswers = true;
 var showAnswers = false;
+var hideAnswersOnNextPage = false;
 var baseFontSize = 20;
 
 function onBodyLoad() {
 	shuffleQuestions = localStorage.getItem("shuffleQuestions") == "true";
 	shuffleAnswers = localStorage.getItem("shuffleAnswers") == "true";
-	baseFontSize = localStorage.getItem("baseFontSize") ? parseInt(localStorage.getItem("baseFontSize")) : 20; 
+	hideAnswersOnNextPage = localStorage.getItem("hideAnswersOnNextPage") == "true";
+	baseFontSize = localStorage.getItem("baseFontSize") ? parseInt(localStorage.getItem("baseFontSize")) : 20;
+	 
 	$("#shuffleQuestionsCheckbox").prop("checked",shuffleQuestions);
 	$("#shuffleAnswersCheckbox").prop("checked",shuffleAnswers);
 	$("#startExamButton").click(getQuestionsFromSource);
@@ -23,6 +26,7 @@ function onBodyLoad() {
 	$("#jumpToQuestionButton").click(jumpToQuestion);
 	$(".fontSizeIcon").click(changeFontSize);
 	$("#returnToMainMenuButton").click(returnToMainMenu);
+	
 	$("#shuffleQuestionsCheckbox").change(function(){
 	 	shuffleQuestions = $(this).prop("checked");
 	 	localStorage.setItem("shuffleQuestions",shuffleQuestions);
@@ -31,7 +35,10 @@ function onBodyLoad() {
 	 	shuffleAnswers = $(this).prop("checked");
 	 	localStorage.setItem("shuffleAnswers",shuffleAnswers);
 	});
-	 
+	$("#hideAnswersOnNextPageCheckbox").change(function(){
+	 	hideAnswersOnNextPage = $(this).prop("checked");
+	 	localStorage.setItem("hideAnswersOnNextPage",hideAnswersOnNextPage);
+	}); 
 	$("#jumpToQuestionInput").focus(function(){
 	 	$(this).val("");
 	});
@@ -108,11 +115,6 @@ function markQuestion(e){
 		$("#markQuestionButton").text("Unmark Question");
 	}
 	
-		// if ($button.length > 0) {
-		// $("#markQuestionButton").text("Unmark Quesions");
-	// } else {
-		// $("#markQuestionButton").text("Mark Quesions");
-	// }
 	if ($(".markedQuestionButton").length > 0) {
 		$("#markedQuestionsSectionHeader").show();
 	} else {
@@ -188,15 +190,26 @@ function turnNumberToLetter(number) {
 }
 
 function goToPreviousQuestion(e) {
+	hideAnswersSection();
 	var index = $("#questionsSection").attr("question-index");
 	--index;
 	displayQuestion(index);
 }
 
 function goToNextQuestion(e) {
+	hideAnswersSection();
   	var index = $("#questionsSection").attr("question-index");
   	++index;
   	displayQuestion(index);
+}
+
+function hideAnswersSection() {
+	if (hideAnswersOnNextPage) {
+		showAnswers = false;
+		$("#correctAnswersSection").hide();
+		$(".correctAnswer").removeClass("correctAnswerStyle");
+		$("#showAnswersButton").text("Show Answers");
+	}
 }
 
 function onAnswerChange(e) {
@@ -240,8 +253,6 @@ function startExam() {
 	$("#jumpToQuestionInput").attr("placeholder","1 - " + questions.length);
 	$("#menuSection").hide();
 	$("#markQuestionButton").show();
-	// $("#startPracticeButton").hide();
-	// $("#shuffleQuestionsDiv").hide();
 	$("#questionsSection").show();
 	$("#bottomBar").show();
 	if (!practice) {
@@ -432,7 +443,7 @@ function shuffleArray(o){
 function changeFontSize(e) {
 	var addition = parseInt($(this).attr("addition"));
 	var newFontSize = baseFontSize + addition;
-	if (newFontSize < 50 && newFontSize > 10) {
+	if (newFontSize < 50 && newFontSize > 5) {
 		baseFontSize = newFontSize;
 		localStorage.setItem("baseFontSize",baseFontSize);
 		var questionIndex = $("#questionsSection").attr("question-index");

@@ -2,6 +2,7 @@ body {
 	font-family: Verdana;
 	font-size: 20px;
 	margin: 0px;
+	height: 100%;
 }
 #showAnswersSection {
 	text-align: left;
@@ -58,7 +59,7 @@ body {
 	margin-right:10px; 
 }
 button {
-	font-size: 20px;
+	font-size: 17px;
 	border-radius: 10px;
 	background: white;
 	border-width: 1px;
@@ -88,7 +89,7 @@ input {
     vertical-align: middle;
 }
 
-#shuffleQuestionsDiv {
+#optionsDiv {
 	margin-top: 20px;
 }
 
@@ -97,16 +98,20 @@ input {
 	cursor: pointer;
 	vertical-align: middle;
 }
+
 #fontSizeDiv {
-	position: absolute;
-	right: 5px;
-	bottom: 5px;
+	text-align: right;
+	padding-right: 10px;
+	/*position: absolute;*/
+	/*right: 5px;*/
+	/*bottom: 5px;*/
 }
-#returnToMainMenuButton {
+
+/*#returnToMainMenuButton {
 	position: absolute;
 	left: 5px;
 	bottom: 5px				
-}
+}*/
 #jumpToQuestionInput {
 	margin-right: 10px;
 	font-size: 20px;
@@ -139,4 +144,14 @@ input {
 }
 #examTypeSelect {
 	font-size: 20px;
+}
+
+#bottomBar table {
+	width: 100%;
+	table-layout: fixed;
+	border-spacing: 0;
+}
+
+.centeredContent {
+	text-align: center;	
 }
