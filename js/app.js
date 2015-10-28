@@ -445,10 +445,9 @@ function setFontSizeOnElements() {
 	// $("#markedQuestionsSection").css({"font-size" : baseFontSize + "px"});
 	// $("#wrongQuestionsSection").css({"font-size" : baseFontSize + "px"});
 	$("#correctAnswersSection").css({"font-size" : baseFontSize + "px"});
-	$("#questionBodySection").css({"font-size" : (baseFontSize+5) + "px"});
-	$("#answersSection").css({"font-size" : (baseFontSize+5) + "px"});
+	$("#questionBodySection").css({"font-size" : (baseFontSize+3) + "px"});
+	$("#answersSection").css({"font-size" : (baseFontSize) + "px"});
 	$("#submitExamButton").css({"font-size" : (baseFontSize+20) + "px"});
-	$("#answersSection").css({"font-size" : (baseFontSize+3) + "px"});
 	// var questionIndex = $("#questionsSection").attr("question-index");
 	// displayQuestion(questionIndex);
 }

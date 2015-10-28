@@ -1003,44 +1003,7 @@ c. Create list views and report folders in the partner portal setup so they are 
 d. Create a new tab in the partner portal to display the appropriate list views and report folders.
 Ans: a,c
 
-134.	Universal Containers needs to ensure that when a product is associated with an oppty, the appropriate product specialists are added to the sales team. Which solution would meet this business requirement?
-A. create an Apex trigger on the oppty	
-Ans: a
-
-135.	Universal Containers has set up SF-to-SF with one of its partners as a way to share deals with the partner. What standard functionality will Universal Containers gain when implementing Salesforce-to-Salesforce? Choose 2
-A.	ability to manage internal and channel sales in one place
-B.	visibility into partner updates on shared records
-Ans: a,b
-
-136.	Universal Containers recently changed the sharing model for accounts from public to private. Users must be able to view contacts they own for accounts that are owned by other users. However, account owners do NOT need access to contacts owned by other users. How should this be accomplished?
-A. set the OWD for contacts to private	
-Ans: a
-
-137.	Universal Containers has a complex sales process methodology that requires several different pricing scenarios be generated. Once a customer has agreed upon a price scenario, the sales representative needs to document it in Salesforce. Which solution should a consultant recommend to accommodate a multiple-price scenario methodology?
-A.	Implement quotes with the Quote Syncing feature.
-Ans: a
-
-138.	Universal Insurance is a large insurance company with a customer base that includes both individual consumers and businesses. The company has implemented person accounts in Salesforce. It has a custom object for policies that needs to relate to both person accounts and business accounts.
-	A. Create a master-detail account relationship.
-Ans: a
-
-139.	Sellers for Universal Containers need access to reports in the partner portal to help manage their opportunities. How should Salesforce be configured to give resellers the correct level of access to reports?
-A.	Create the appropriate list views and report folders in the partner portal for all partner users.
-Ans: a
-
-140.	A sales rep at UC works with multiple contacts in various roles throughout a sales cycle. The sales rep needs to track these individuals and the type of influence each has on the respective deals. How can a consultant meet this requirement in Salesforce?
-A. Add the Contact Roles related list to the opportunity page layout
-Ans: a
-
-141.	Universal Containers is expanding sales internationally and has created new price books to handle the various currencies for the five new countries. When a sales representative selects one of the new price books to add a product to an opportunity, there are no products available.
-A. Confirm that the products and currencies are associated with the pricebook
-Ans: a
-
-142.	A sales rep at UC works with multiple contacts in various roles throughout a sales cycle. The sales rep needs to track these individuals and the type of influence each has on the respective deals. How can a consultant meet this requirement in Salesforce?
-A. Add the Contact Roles related list to the opportunity page layout	
-Ans: a
-
-143. Universal Containers wants to implement a website for a new product launch. The site should be publicly available, allow visitors to submit requests for information, and be managed by the non-technical marketing team. What solution should the consultant recommend?
+134. Universal Containers wants to implement a website for a new product launch. The site should be publicly available, allow visitors to submit requests for information, and be managed by the non-technical marketing team. What solution should the consultant recommend?
 A.	Site.com
 B.	Customer Community 
 C.	Salesforce1 Sites 
@@ -1048,10 +1011,96 @@ D.	Force.com Sites
 
 ans: a
 
-26. Universal Containers wants to improve the information profile of its current contacts in Salesforce by using social networking applications (e.g., LinkedIn and Twitter) to add to the information currently gathered for accounts, contacts, and leads. What should a consultant recommend to meet this requirement?
+135. Universal Containers wants to improve the information profile of its current contacts in Salesforce by using social networking applications (e.g., LinkedIn and Twitter) to add to the information currently gathered for accounts, contacts, and leads. What should a consultant recommend to meet this requirement?
 A.	Enable Social Accounts and Contacts to link records to social profiles. 
 B.	Create custom fields that hold URL links to social profiles for social profiles for accounts, contacts, and leads.
 C.	Enable the Salesforce to Social Network API connection to sync records.
 D.	Define the social network fields and enable them on account, contacts, and leads.
 
 ans: a
+
+136. Universal Containers wants to improve the accuracy of its current sales forecast. It also wants to improve the relevance of its sales stage and the role they play in sales process. How should the relationships between the elements of the sales process be defined to meet these requirements?
+A.	Map opportunity stage to forecast categories; assign accurate probability to each stage.
+B.	Map sales probability values to forecast categories; assign sales stages accurate percentages. 
+C.	Map forecast probability to opportunity probability; assign appropriate sales stage. 
+D.	Map appropriate sales stage to opportunity stage; assign accurate forecast probability.
+Ans: a
+
+137. Universal Containers sells two products that each have a unique sales methodology. A few of the sales stages overlap between the selling methodologies, but are unique to just one of the methodologies. What element must be configured to support both selling methodologies? Choose 3 answers
+A.	Company financial information
+B.	List of required objects and fields
+C.	Organizational chart with titles
+D.	Key reports from the current system
+E.	 List of stakeholders with roles and titles
+Ans: b,d	
+
+138. Universal Containers has automated the process of creating new account records in Salesforce. All account records created through this process are owned by a generic user. There are two million account records that have been created in this manner. Universal Containers is now seeing performance issues when it makes any changes to account sharing rules. What can Universal Containers do to address the issue without changing its integration?
+A.	Ensure that the generic user has the Modify All Data permission. 
+B.	Ensure that the generic user has not been assigned to a role. 
+C.	Set the organization-wide defaults for accounts to public read/write.
+D.	 Contact Salesforce support to add an index to the account object.
+Ans: c
+139. How can Chatter Free licenses be enabled to allow collaboration between the sales team and the customer during the sales process? Choose 2 answers
+A.	Enable invitations and allow users to invite within a specified domain.
+B.	 Create Chatter Free users outside of a specified domain. 
+C.	Assign Chatter Free licenses to existing Salesforce users. 
+D.	Create new user and assign a Chatter Free license.
+Ans: a,d
+140. What is consideration when implementing Advanced Management? Choose 3 answers
+A.	The converted amount of an opportunity uses dated exchange rates based on the close date of the opportunity.
+B.	Currency roll-up summary fields from opportunities products to an opportunity use the dated exchange rate.
+C.	Currency roll-up summary fields from opportunities to an account use the static conversion rate.
+D.	Advanced Currency Management can be enabled or disabled in the organization under the company profile, if needed.
+E.	Advanced Currency Management dated exchange rates are automatically update on a monthly basis.
+Ans: a,b,c
+
+141. The Vice President of Sales for Universal Containers wants a pipeline trending report that will be used for a monthly sales forecast meeting. What solution should a consultant recommend to meet this requirement?
+A.	Create a month-over-month trending report and save the results in a public sales folder.
+B.	Create a custom object to store monthly opportunity data populated by a scheduled job.
+C.	Create an analytic snapshot to run monthly for opportunities by forecast category.
+D.	Create reports to run monthly and save the results in a personal report folder.
+Ans: c
+142. Universal Containers uses a custom object named Insight, which is the child in a master-detail relationship with the Opportunity object. Sales teams use this object to create requests for analysts who conduct supporting research regarding an opportunity. Sales teams use Salesforce1 Mobile App and want to easily create new Insight records from their phones. What should a consultant recommend to meet this requirement?
+A.	Create a related list button.
+B.	Create a custom object tab.
+C.	Create a publisher action.
+D.	Create a Visualforce page.
+Ans: a
+143. Universal Containers has a private sharing model for accounts and opportunities. Each sales representative is assigned to work a dedicated sales engineer. The sales engineer will need access to their assigned sales representative’s accounts and opportunities. What should a consultant recommend to meet this requirement?
+A.	Enable account and opportunity teams selling and have each sales representative configure their default teams.
+B.	Have the sales representatives manually share the accounts and opportunities with their assigned sales engineers.
+C.	Create a trigger to add the sales engineers to their sales representatives' account and opportunity teams.
+D.	Create criteria-based sharing rules to share the accounts and opportunities with sales engineers.
+Ans: a
+144. Universal Containers would like to capture business sector information on a lead and display the information on the account and contact once the lead has been converted. How can these requirements be met?
+A.	Create a custom field on the Lead and Account objects. Create a custom formula field on the Contact object to pull the value from the Account object. 
+B.	Create a custom field on the Lead and Account objects and configure mapping of these two fields for conversion. Create a custom formula field on the Contact object to pull the value from the Account object.
+C.	Create a custom field on the Lead and Account objects and configure mapping of these two fields for conversion. Create a custom formula field on the Account object to pull the value from the Contact object.
+D.	Create a custom field on the Lead, Account and Contact objects and configure mapping of these two fields for conversion. Use a trigger to update the Contact field with the Account value.
+Ans: b
+145. UC has org-wide default set to private .Sales representative owns an account and would like to collaborate with internal (...external) people from other department (marketing and other management.)What should a consultant recommend to ensure collaborating team member can report and access relevant data in salesforce?
+A.	Use custom sharing on account to share specific record.
+B.	Use Opportunity team to share records to relevant people 
+C.	Use account team to share records to relevant people 
+D.	Use chatter to share records with relevant people
+Ans: c
+146. Universal Insurance is a large insurance company with a customer base that includes both individual consumers and businesses. The company has implemented person accounts in Salesforce. It has a custom object for policies that needs to relate to both person accounts and business accounts. What is the minimum configuration on the policy custom object needed to meet this requirement?
+A.	Create a master-detail account relationship.
+B.	Create a contact lookup field and an account lookup field.
+C.	Create a master-detail contact relationship.
+D.	Create a custom contact lookup field.
+Ans: a
+147. What is capability of Data.com Clean? Choose 3 answers
+A.	Individual records can be manually compared side-by-side with matched Data.com records and updated field-by-field.
+B.	 Data.com Clean can be used with Salesforce.com person accounts and business accounts.
+C.	Accounts, contacts, and lead records can be selected from a list and cleaned all at once.
+D.	Data.com can be configured to run automated Clean jobs to flag field differences and automatically fill blank fields.
+E.	Accounts must be cleaned before cleaning contacts, but leads may be cleaned either before or after cleaning accounts.
+ans: a,c,d
+148. Universal Containers has its sales representatives enter a new lead whenever they are prospecting a new qualifying the new lead, a new opportunity must be created to track the deal. What should a consultant recommend to enforce data quality and accuracy? Choose 3 answers
+A.	Enable validation rules on the opportunity. 
+B.	Enable the lead conversion permission. 
+C.	Create an Apex trigger to perform data quality checks. 
+D.	Map lead fields to corresponding opportunity fields. 
+E.	Enable validation rules on the lead.
+Ans: b,d,e
