@@ -126,6 +126,8 @@ input {
 
 .page {
 	padding: 10px;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .withBottomBar {
