@@ -7,129 +7,25 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
         <script src="js/jquery.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-        <!-- <link rel="stylesheet" href="css/style.css"> -->
+        <link rel="stylesheet" href="css/style.css">
         
-        <style>
-        	body {
-        		font-family: Verdana;
-        		font-size: 20px;
-        	}
-        	#showAnswersSection {
-        		text-align: left;
-        	}
-        	#navigationButtonsWrap {
-        		position: relative;
-        		height: 50px;
-        		text-align: center;
-        		margin-top: 20px;
-        	}
-        	#nextQuestionButton {
-        		position: absolute;
-        		right: 0;
-        		top: 0;
-        	}
-            #previousQuestionButton {
-        		position: absolute;
-        		left: 0;
-        	}
-        	#questionsSection {
-        		display: none;
-        	}
-        	#wrongAnswersSection {
-        		display: none;
-        		/*font-size: 20px;*/
-				font-family: verdana;
-        	}
-        	#correctAnswersSection {
-        		margin-top: 10px;
-        		display: none;
-        		/*font-size: 20px;*/
-				font-family: verdana;
-        	}
-        	#wrongQuestionsSection {
-        		display: none;
-        		/*font-size: 20px;*/
-				font-family: verdana;
-        	}
-        	#questionBodySection {
-        		/*font-size: 25px;*/
-        		font-family: verdana;
-        		margin-bottom:10px;
-        		font-weight: bold;
-    		    white-space: pre-wrap;
-        	}
-        	#answersSection {
-        		/*font-size: 23px;*/
-				font-family: verdana;
-			}
-			#answersSection input {
-				/*font-size: 25px;*/
-				margin-right:10px; 
-			}
-			button {
-				font-size: 20px;
-				border-radius: 10px;
-				background: white;
-				border-width: 1px;
-				font-family: verdana;
-			}
-			#markedQuestionsSection {
-				/*font-size: 20px;*/
-				font-family: verdana;
-			}
-			#markedQuestionsSectionHeader {
-				display: none;
-			}
-			#submitExamButtonWrap {
-				text-align: center;
-			}
-			#submitExamButton {
-				font-size: 40px;
-				margin-top: 50px; 
-			}
-			
-			.correctAnswerStyle {
-				background: yellow;
-			}
-			
-			input {
-			    vertical-align: middle;
-			}
-			
-			#shuffleQuestionsDiv {
-				margin-top: 20px;
-			}
-			
-			.fontSizeIcon {
-				width: 30px;
-				cursor: pointer;
-			}
-			#fontSizeDiv {
-				position: fixed;
-				right: 20px;
-				bottom: 20px
-			}
-			#returnToMainMenuButton {
-				position: fixed;
-				left: 20px;
-				bottom: 20px				
-			}
-			#jumpToQuestionInput {
-				margin-right: 10px;
-				font-size: 20px;
-			}
-        </style>
+      
     </head>
     <body onload="onBodyLoad()">
-    	<div id="menuSection">
+    	<div id="menuSection" class="page">
 			<button id="startExamButton">Start Exam</button>
 			<button id="startPracticeButton">Practice</button>
 			<div id="shuffleQuestionsDiv">
 				<label for="shuffleQuestionsCheckbox">Shuffle Questions?</label> <input type="checkbox" id="shuffleQuestionsCheckbox"/><br/>
 				<label for="shuffleAnswersCheckbox">Shuffle Answers?</label> <input type="checkbox" id="shuffleAnswersCheckbox"/>
 			</div>
+			<label>Select certification: </label>
+			<select id="examTypeSelect">
+				<option value="dev401.txt">Dev 401</option>
+				<option value="salescloud.txt" selected>Sales Cloud</option>
+			</select>
 		</div>
-		<div id="questionsSection">
+		<div id="questionsSection" class="page withBottomBar">
 			<div id="questionBodySection">
 				
 			</div>
@@ -155,22 +51,26 @@
 				<div id="markedQuestionsSectionHeader">
 					Marked questions: 
 				</div>
+				<div id="markedQuestionsButtonsSection">
+					
+				</div>
 			</div>
 			<div id="submitExamButtonWrap">
 				<button id="submitExamButton">Submit</button>
 			</div>
 			<div id="wrongQuestionsSection">
-				<div id="wrongQuestionsSectionHeader">
-					Wrong answered questions: 
-				</div>
+
 			</div>
+
+		</div>
+		<div id="bottomBar">
 			<div id="fontSizeDiv">
 				
 				<img class="fontSizeIcon" src="images/fontsizeup.png" addition="1"/>
 				<img class="fontSizeIcon" src="images/fontsizedown.png" addition="-1"/>
 				
 			</div>
-			<button id="returnToMainMenuButton">Return to main menu</button>
+			<button id="returnToMainMenuButton">Return to main menu</button>	
 		</div>
     </body>
 </html>

@@ -1,0 +1,140 @@
+body {
+	font-family: Verdana;
+	font-size: 20px;
+	margin: 0px;
+}
+#showAnswersSection {
+	text-align: left;
+}
+#navigationButtonsWrap {
+	position: relative;
+	height: 50px;
+	text-align: center;
+	margin-top: 20px;
+}
+#nextQuestionButton {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#previousQuestionButton {
+	position: absolute;
+	left: 0;
+}
+#questionsSection {
+	display: none;
+}
+#wrongAnswersSection {
+	display: none;
+	/*font-size: 20px;*/
+	font-family: verdana;
+}
+#correctAnswersSection {
+	margin-top: 10px;
+	display: none;
+	/*font-size: 20px;*/
+	font-family: verdana;
+}
+#wrongQuestionsSection {
+	display: none;
+	font-size: 20px;
+	font-family: verdana;
+	white-space: pre-wrap;
+	margin-top: 10px;
+}
+#questionBodySection {
+	/*font-size: 25px;*/
+	font-family: verdana;
+	margin-bottom:10px;
+	font-weight: bold;
+    white-space: pre-wrap;
+}
+#answersSection {
+	/*font-size: 23px;*/
+	font-family: verdana;
+}
+#answersSection input {
+	/*font-size: 25px;*/
+	margin-right:10px; 
+}
+button {
+	font-size: 20px;
+	border-radius: 10px;
+	background: white;
+	border-width: 1px;
+	font-family: verdana;
+}
+#markedQuestionsSection {
+	font-size: 20px;
+	font-family: verdana;
+	margin-top: 10px;
+}
+#markedQuestionsSectionHeader {
+	display: none;
+}
+#submitExamButtonWrap {
+	text-align: center;
+}
+#submitExamButton {
+	font-size: 40px;
+	margin-top: 50px; 
+}
+
+.correctAnswerStyle {
+	background: yellow;
+}
+
+input {
+    vertical-align: middle;
+}
+
+#shuffleQuestionsDiv {
+	margin-top: 20px;
+}
+
+.fontSizeIcon {
+	width: 30px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+#fontSizeDiv {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+}
+#returnToMainMenuButton {
+	position: absolute;
+	left: 5px;
+	bottom: 5px				
+}
+#jumpToQuestionInput {
+	margin-right: 10px;
+	font-size: 20px;
+	border-radius: 4px;
+}
+
+#bottomBar {
+	position: fixed;
+	bottom: 0;
+	height : 40px;
+	width: 100%;
+	display: none;
+	z-index: 10;
+	background-color: white;
+	border-top: 1px solid gray;
+}
+
+.page {
+	padding: 10px;
+}
+
+.withBottomBar {
+	margin-bottom: 40px;
+}
+
+#jumpToQuestionButton {
+	vertical-align: middle;
+}
+#examTypeSelect {
+	font-size: 20px;
+}
